@@ -2,17 +2,19 @@
   <div id=app>
     <header>
       <h1>The Adventurer's Spellbook</h1>
-      <ul v-if: spells>
-        <li v-for="(spell) in this.spells" :key='spell.index'> {{spell.name}}</li>
-      </ul>
+      <spell-list :spells="spells">
+        
+      </spell-list>
     </header>
   </div>
 </template>
 
 <script>
+import SpellList from "@/components/spellList";
 export default {
   name:"app",
   components: {
+    "spell-list": SpellList
   },
   data() {
     return {
