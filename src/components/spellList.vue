@@ -1,6 +1,6 @@
 <template>
     <div class="spell-list" v-if="spells.length">    
-        <li v-for="(spell) in this.spells" :key="spell.index"> {{spell.name}}</li>
+        <li v-for="(spell) in this.spells" :key="spell.index"> {{spell.name}}  Level: {{spell.level}}  School: {{spell.school.index}}  Casting Time: {{spell.casting_time}}</li>
     </div>
 </template>
 
@@ -9,6 +9,7 @@
 export default {
     name: "spell-list",
     props: ["spells"]
+    
 }
 </script>
 

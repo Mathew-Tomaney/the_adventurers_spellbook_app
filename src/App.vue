@@ -18,14 +18,31 @@ export default {
   },
   data() {
     return {
+      rawSpells:[],
       spells: [],
       selectedSpell: null
     };
   },
+  methods: {
+    getRawSpells: function() {
+      fetch("https://www.dnd5eapi.co/api/spells")
+      .then(response => response.json())
+      .then(spells => this.rawSpells = spells.results)
+      .then (() => this.getDetailedSpells());
+    },
+
+    getDetailedSpells: function() {
+      for (const spell of this.rawSpells) {
+        fetch(`https://www.dnd5eapi.co${spell.url}`)
+        .then(response => response.json())
+        .then(data => this.spells.push(data))
+      }
+    }
+      
+  },
+
   mounted() {
-    fetch("https://www.dnd5eapi.co/api/spells")
-    .then(response => response.json())
-    .then(spells => this.spells = spells.results);
+    this.getRawSpells()
   }
 }
 </script>
