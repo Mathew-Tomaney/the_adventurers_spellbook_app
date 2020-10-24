@@ -10,6 +10,7 @@
 </template>
 
 <script>
+import { eventBus } from "@/main.js"
 import SpellList from "@/components/spellList";
 export default {
   name:"app",
@@ -43,6 +44,8 @@ export default {
 
   mounted() {
     this.getRawSpells()
+
+    eventBus.$on("spell-selected", spell => (this.selectedSpell = spell));
   }
 }
 </script>
