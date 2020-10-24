@@ -3,7 +3,7 @@
     <header>
       <h1>The Adventurer's Spellbook</h1>
       <ul v-if: spells>
-        <li v-for="(spell, index) in this.spells"> {{spell.name}}</li>
+        <li v-for="(spell) in this.spells" :key='spell.index'> {{spell.name}}</li>
       </ul>
     </header>
   </div>
