@@ -24,7 +24,7 @@ export default {
     return {
       rawSpells:[],
       spells: [],
-      classes: [],
+      filteredSpellsList: [],
       selectedSpell: null,
       filterValue: ""
     };
@@ -34,7 +34,8 @@ export default {
       fetch("https://www.dnd5eapi.co/api/spells")
       .then(response => response.json())
       .then(spells => this.rawSpells = spells.results)
-      .then (() => this.getDetailedSpells());
+      .then (() => this.getDetailedSpells())
+      .then (() => this.filteredSpells());
     },
 
     getDetailedSpells: function() {
@@ -43,7 +44,12 @@ export default {
         .then(response => response.json())
         .then(data => this.spells.push(data))
       }
-    }
+    },
+    // filteredSpells: function() {
+    //   for (const spell of this.spells) {
+    //     this.filteredSpellsList = spell.classes.filter(index => index.name === this.filterValue)
+    //   }
+    // }
   },
 
   mounted() {

@@ -11,8 +11,7 @@ export default {
     props: ["spells"],
     components: {
         "spell-list-item": SpellListItem
-    }
-    
+    },
 }
 </script>
 

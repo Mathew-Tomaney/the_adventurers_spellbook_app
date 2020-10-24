@@ -24,9 +24,7 @@ export default {
     methods: {
         filterSpells: function() {
             eventBus.$emit("filter-value", this.filterValue);
-        },
-
-
+        }
     }
 }
 </script>
