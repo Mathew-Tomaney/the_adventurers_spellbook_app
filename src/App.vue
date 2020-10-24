@@ -1,28 +1,33 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id=app>
+    <header>
+      <h1>The Adventurer's Spellbook</h1>
+      <ul v-if: spells>
+        <li v-for="(spell, index) in this.spells"> {{spell.name}}</li>
+      </ul>
+    </header>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
-  name: 'App',
+  name:"app",
   components: {
-    HelloWorld
+  },
+  data() {
+    return {
+      spells: [],
+      selectedSpell: null
+    };
+  },
+  mounted() {
+    fetch("https://www.dnd5eapi.co/api/spells")
+    .then(response => response.json())
+    .then(spells => this.spells = spells.results);
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
