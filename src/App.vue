@@ -26,8 +26,22 @@ export default {
       spells: [],
       filteredSpellsList: [],
       selectedSpell: null,
-      filterValue: ""
+      filterValue: "All"
     };
+  },
+  computed: {
+    filteredSpells: function() {
+      let spell;
+      let i;
+      for (let spell of this.spells) {
+        for (let i of spell.classes) {
+          if (this.filterValue !== "All" && i.name === this.filterValue) {
+            console.log(spell)
+            this.filteredSpellsList.push(spell)
+          }
+        }
+      }
+    }
   },
   methods: {
     getRawSpells: function() {
@@ -35,7 +49,6 @@ export default {
       .then(response => response.json())
       .then(spells => this.rawSpells = spells.results)
       .then (() => this.getDetailedSpells())
-      .then (() => this.filteredSpells());
     },
 
     getDetailedSpells: function() {
@@ -45,19 +58,14 @@ export default {
         .then(data => this.spells.push(data))
       }
     },
-    // filteredSpells: function() {
-    //   for (const spell of this.spells) {
-    //     this.filteredSpellsList = spell.classes.filter(index => index.name === this.filterValue)
-    //   }
-    // }
   },
 
   mounted() {
     this.getRawSpells()
-
+    
     eventBus.$on("spell-selected", spell => (this.selectedSpell = spell));
 
-    eventBus.$on("filter-value", filterValue => (this.filterValue = filterValue));
+    eventBus.$on("filter-value", filterValue => (this.filterValue = filterValue))
   }
 }
 </script>
