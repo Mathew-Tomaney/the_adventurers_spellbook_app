@@ -29,6 +29,7 @@ export default {
     display: grid;
     align-items: center;
     grid-template-columns: 25% 25% 25% 25%;
+    border: 1px solid grey;
     
 }
 
