@@ -1,19 +1,19 @@
 <template>
-  <div id=app>
+  <main>
     <header>
       <h1>The Adventurer's Spellbook</h1>
     </header>
-    <main>
+    <ul>
       <spell-filter></spell-filter>
       <spell-list :spells="spells" :filteredSpells="filteredSpellsList"></spell-list>
-    </main>
+    </ul>
     <aside>
       <spell-detail :selectedSpell="selectedSpell"></spell-detail>
     </aside>
     <footer>
       <h4>Thanks for checking it out!</h4>
     </footer>
-  </div>
+  </main>
 </template>
 
 <script>
@@ -82,23 +82,39 @@ export default {
 
 <style lang="css" scoped>
 
-/* #app {
+body {
+  margin:0;
+  padding:0;
+}
+
+main {
+  margin:0 0 0 0;
+  padding:0 0 0 0;
   display: grid;
   grid-template-columns: 50% 50%;
   grid-template-rows: 100px auto 100px;
   max-height: 100vh;
   grid-template-areas: 
-    "header header"
-    "list boxes"
-    "footer footer";
+    'header header'
+    'list boxes'
+    'footer footer';
 }
 
-#app > header {
+header {
   grid-area: header;
+  background-color: rgb(29, 93, 29);
+  color:gainsboro;
+}
+header > h1 {
+  font-family: fantasy;
+  font-size: 35pt;
+  padding: 5px;
 }
 
-main {
+ul {
   grid-area: list;
+  margin:0;
+  padding:0;
 }
 
 aside {
@@ -107,5 +123,13 @@ aside {
 
 footer {
   grid-area: footer;
-} */
+  background-color: rgb(29, 93, 29);
+  color:gainsboro;
+}
+
+footer > h4 {
+  padding: 0 20px;
+  font-family: fantasy;
+  font-size: 25pt;
+}
 </style>

@@ -3,12 +3,12 @@
       <h2>{{selectedSpell.name}}</h2>
       <p>{{selectedSpell.desc[0]}}</p>
       <p v-if="selectedSpell.higher_level">{{selectedSpell.higher_level[0]}}</p>
-      <p>Range: {{selectedSpell.range}}</p>
+      <p v-if="selectedSpell.range">Range: {{selectedSpell.range}}</p>
       <p>Components: {{selectedSpell.components[0]}}</p>
-      <p>Ritual? {{selectedSpell.ritual}}</p>
-      <p>Materials required: {{selectedSpell.material}}</p>
+      <p v-if="selectedSpell.material">Materials required: {{selectedSpell.material}}</p>
       <p>Duration: {{selectedSpell.duration}}</p>
-      <p>Contentration? {{selectedSpell.concentration}}</p>
+      <p v-if="selectedSpell.concentration">Requires concentration.</p>
+      <p v-if="selectedSpell.ritual">Can be cast as a ritual</p>
   </section>
 </template>
 
@@ -21,5 +21,9 @@ export default {
 </script>
 
 <style>
-
+section {
+    border: 20px groove forestgreen;
+    margin: 0px 20px 0 20px;
+    padding: 20px;
+}
 </style>

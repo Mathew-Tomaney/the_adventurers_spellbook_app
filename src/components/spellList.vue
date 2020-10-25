@@ -28,8 +28,7 @@ export default {
 
 <style>
 .spell-list {
-    max-width: 70%;
-    max-height: 70vh;
+    max-height: 60vh;
     overflow-y: scroll;
 }
 #list-titles {
