@@ -53,11 +53,6 @@ export default {
             eventBus.$emit("filter-value", this.filterValue)
         },
     },
-    // watch: {
-    //     filterValue: function() {
-    //         eventBus.$emit("filter-value", this.filterValue);
-    //     }
-    // }
 }
 </script>
 
