@@ -68,4 +68,7 @@ export default {
     background-color: rgba(167, 206, 79, 0.657);
     padding: 10px;
 }
+input {
+    cursor: pointer;
+}
 </style>

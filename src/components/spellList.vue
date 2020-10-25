@@ -34,5 +34,8 @@ export default {
 #list-titles {
     display:grid;
     grid-template-columns: 25% 25% 25% 25%;
+    border: 2px solid black;
+    padding: 5px;
+    background-color: rgba(193, 224, 175, 0.897);
 }
 </style>

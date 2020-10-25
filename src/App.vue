@@ -98,23 +98,26 @@ main {
     'header header'
     'list boxes'
     'footer footer';
+  background-color: rgba(48, 110, 48, 0.445);
 }
 
 header {
   grid-area: header;
-  background-color: rgb(29, 93, 29);
+  background: linear-gradient(rgb(29, 93, 29), green);
   color:gainsboro;
 }
 header > h1 {
   font-family: fantasy;
   font-size: 35pt;
-  padding: 5px;
+  padding: 20px;
+  margin:0;
 }
 
 ul {
   grid-area: list;
   margin:0;
   padding:0;
+  background-color: white;
 }
 
 aside {
@@ -123,13 +126,17 @@ aside {
 
 footer {
   grid-area: footer;
-  background-color: rgb(29, 93, 29);
+  display: flex;
+  justify-content: flex-end;
+  background:linear-gradient(green, rgb(29, 93, 29));
   color:gainsboro;
+  margin:0;
 }
 
 footer > h4 {
-  padding: 0 20px;
+  padding: 20px;
   font-family: fantasy;
   font-size: 25pt;
+  margin:5px;
 }
 </style>

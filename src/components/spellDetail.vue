@@ -23,7 +23,8 @@ export default {
 <style>
 section {
     border: 20px groove forestgreen;
-    margin: 0px 20px 0 20px;
+    margin: 135px 20px 0 20px;
     padding: 20px;
+    background-color: white;
 }
 </style>

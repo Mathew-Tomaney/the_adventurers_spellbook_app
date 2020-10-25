@@ -30,7 +30,11 @@ export default {
     align-items: center;
     grid-template-columns: 25% 25% 25% 25%;
     border: 1px solid grey;
-    
+    padding: 10px;
+}
+.list-line:hover{
+    background-color: rgba(21, 114, 21, 0.507);
+    cursor: pointer;
 }
 
 #list-item-name{
