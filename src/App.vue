@@ -3,7 +3,7 @@
     <header>
       <h1>The Adventurer's Spellbook</h1>
       <spell-filter></spell-filter>
-      <spell-list :spells="spells">
+      <spell-list :spells="spells" :filteredSpells="filteredSpellsList">
       </spell-list>
     </header>
   </div>
@@ -13,6 +13,7 @@
 import { eventBus } from "@/main.js"
 import SpellList from "@/components/spellList";
 import SpellFilter from "@/components/spellFilter";
+
 
 export default {
   name:"app",
@@ -33,10 +34,10 @@ export default {
     filteredSpells: function() {
       let spell;
       let i;
+      this.filteredSpellsList= []
       for (let spell of this.spells) {
         for (let i of spell.classes) {
           if (this.filterValue !== "All" && i.name === this.filterValue) {
-            console.log(spell)
             this.filteredSpellsList.push(spell)
           }
         }

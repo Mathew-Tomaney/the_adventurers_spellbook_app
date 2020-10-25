@@ -1,6 +1,17 @@
 <template>
-    <div class="spell-list" v-if="spells.length">    
-        <spell-list-item v-for="(spell) in this.spells" :spell="spell" :key="spell.index"></spell-list-item>
+    <div>
+        <span class="spell-list" id="list-titles">
+            <h2>Spell Name</h2>
+            <h2>Level</h2>
+            <h2>Magic School</h2>
+            <h2>Casting Time</h2>
+        </span>
+        <div class="spell-list" v-if="filteredSpells.length">    
+            <spell-list-item v-for="(spell) in this.filteredSpells" :spell="spell" :key="spell.index"></spell-list-item>
+        </div>
+        <div class="spell-list" v-if="!filteredSpells.length">    
+            <spell-list-item v-for="(spell) in this.spells" :spell="spell" :key="spell.index"></spell-list-item>
+        </div>
     </div>
 </template>
 
@@ -8,7 +19,7 @@
 import SpellListItem from "@/components/spellListItem";
 export default {
     name: "spell-list",
-    props: ["spells"],
+    props: ["spells", "filteredSpells"],
     components: {
         "spell-list-item": SpellListItem
     },
@@ -16,5 +27,11 @@ export default {
 </script>
 
 <style>
-
+.spell-list {
+    max-width: 70%;
+}
+#list-titles {
+    display:grid;
+    grid-template-columns: 25% 25% 25% 25%;
+}
 </style>
